@@ -3,6 +3,6 @@ export type HttpResponse = {
   body: any
 }
 
-export type httpRequest = {
+export type HttpRequest = {
   body?: any
 }
