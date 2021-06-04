@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --passWithNoTests --config=jest.config.ts",
-    "test:staged": "jest --passWithNoTests --config=jest.config.ts"
+    "test": "jest --passWithNoTests --silent --runInBand --config=jest.config.ts",
+    "test:verbose": "jest --passWithNoTests --runInBand --config=jest.config.ts",
+    "test:unit": "npm test -- --watchAll-c jest-unit-config.js",
+    "test:integration": "npm test -- --watchAll -c jest-integration-config.js",
+    "test:staged": "npm test -- --findRelatedTests",
+    "test:ci": "npm test -- --coverage"
   },  
   "author": "",
   "license": "ISC",
