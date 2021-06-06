@@ -42,7 +42,7 @@ const makeSut = (): SutTypes => {
   }
 }
 
-describe('SignUpController', () => {
+describe('DbAddAccount Usecase', () => {
   let name
   let email
   let password
