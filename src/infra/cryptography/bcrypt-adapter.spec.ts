@@ -3,9 +3,16 @@ import { BcryptAdapter } from './bcrypt-adapter'
 
 jest.mock('bcrypt', () => ({
   async hash (): Promise<string> {
-    return new Promise(resolve => resolve('hash'))
+    return new Promise((resolve) => resolve('hash'))
   }
 }))
+
+/*
+jest.mock('bcrypt', () => ({
+  hash: jest.fn().mockReturnValueOnce('hash')
+
+})) */
+// https://jestjs.io/pt-BR/docs/mock-functions
 
 const salt = 12
 
@@ -26,5 +33,14 @@ describe('Bcrypt adapter', () => {
     const sut = makeSut()
     const hash = await sut.encrypt('any_value')
     expect(hash).toBe('hash')
+  })
+
+  it('should throw if bcrypt throws', async () => {
+    const sut = makeSut()
+    jest.spyOn(bcrypt, 'hash').mockImplementationOnce(async () => {
+      return new Promise((resolve, reject) => reject(new Error()))
+    })
+    const promise = sut.encrypt('any_value')
+    await expect(promise).rejects.toThrow()
   })
 })
