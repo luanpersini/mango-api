@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --passWithNoTests --silent --runInBand",
-    "test:verbose": "jest --passWithNoTests --runInBand --config=jest.config.ts",
+    "test:verbose": "jest --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watchAll -c jest-unit-config.js",
     "test:integration": "npm test -- --watchAll -c jest-integration-config.js",
     "test:staged": "npm test -- --findRelatedTests",
@@ -14,8 +14,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.5",
     "@types/bcrypt": "^5.0.0",
     "@types/jest": "^26.0.23",
+    "@types/mongodb": "^3.6.17",
     "@types/node": "^15.6.1",
     "@types/validator": "^13.1.3",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
