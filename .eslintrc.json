@@ -1,9 +1,15 @@
 {
-  "extends": "standard-with-typescript",
+  "extends": [
+    "standard-with-typescript"
+  ],
+  "plugins": [
+    "import"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "rules": {
+  "parser": "@typescript-eslint/parser",
+  "rules": {    
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/comma-spacing": "off",
@@ -11,8 +17,6 @@
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-namespace": "off",
-    "@typescript-eslint/import/no-unresolved ": "on",     
-    "import/no-unresolved ": "on",   
-    "import/export": "off"    
+    "import/export": "off"
   }
 }
