@@ -7,7 +7,7 @@
     "start": "ts-node-dev --respawn --transpile-only src/main/server.ts",
     "startsc": "sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --runInBand",
-    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:verb": "jest --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watchAll -c jest-unit-config.js",
     "test:int": "npm test -- --watchAll -c jest-integration-config.js",
     "test:staged": "npm test -- --findRelatedTests",
