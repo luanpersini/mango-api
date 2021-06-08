@@ -10,7 +10,9 @@
     "@typescript-eslint/return-await": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/no-misused-promises": "off",
-    "@typescript-eslint/no-namespace": "off",   
-    "import/export": "off"
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/import/no-unresolved ": "on",     
+    "import/no-unresolved ": "on",   
+    "import/export": "off"    
   }
 }
