@@ -7,6 +7,16 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".ts",
+          ".js"
+        ]
+      }
+    }
+  },
   "parser": "@typescript-eslint/parser",
   "rules": {
     "import/no-unresolved": "error",
