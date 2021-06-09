@@ -16,7 +16,16 @@ export const MongoHelper = {
     this.client = null
   },
 
-  // async getCollection (name: string): Promise<Collection> {
+  async convertToCapped (name: string): Promise<void> {
+    if (!this.client?.isConnected()) {
+      await this.connect(this.uri)
+    }
+    const isCapped = await this.client.db().collection(name).isCapped()
+    if (!isCapped) {
+      await this.client.db().command({ convertToCapped: name, size: 5242880 })
+    }
+  },
+
   async getCollection (name: string): Promise<Collection<any>> {
     if (!this.client?.isConnected()) {
       await this.connect(this.uri)

@@ -8,5 +8,6 @@ export class LogMongoRepository implements LogErrorRepository {
       stack,
       date: new Date()
     })
+    // await MongoHelper.convertToCapped('errors')
   }
 }
