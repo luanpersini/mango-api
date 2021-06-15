@@ -5,6 +5,7 @@ export const MongoHelper = {
   uri: null as string,
 
   async connect (uri: string): Promise<void> {
+    this.uri = uri
     this.client = await MongoClient.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true
@@ -16,30 +17,15 @@ export const MongoHelper = {
     this.client = null
   },
 
-  async convertToCapped (name: string): Promise<void> {
-    if (!this.client?.isConnected()) {
-      await this.connect(this.uri)
-    }
-    const isCapped = await this.client.db().collection(name).isCapped()
-    if (!isCapped) {
-      await this.client.db().command({ convertToCapped: name, size: 5242880 })
-    }
-  },
-
-  async getCollection (name: string): Promise<Collection<any>> {
+  async getCollection (name: string): Promise<Collection> {
     if (!this.client?.isConnected()) {
       await this.connect(this.uri)
     }
     return this.client.db().collection(name)
   },
 
-  map: (data: any): any => {
-    const { _id, ...rest } = data
-    return { ...rest, id: _id }
+  map: (collection: any): any => {
+    const { _id, ...collectionWithoutId } = collection
+    return Object.assign({}, collectionWithoutId, { id: _id })
   }
-  /* ,
-  mapCollection: (collection: any[]): any[] => {
-    return collection.map(c => MongoHelper.map(c))
-  }
-  */
 }
