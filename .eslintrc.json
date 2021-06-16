@@ -5,7 +5,7 @@
     "plugin:import/typescript"
   ],  
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.eslint.json"
   },
   "settings": {
     "import/resolver": {
