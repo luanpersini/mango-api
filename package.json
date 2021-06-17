@@ -19,7 +19,7 @@
     "test:int": "npm test -- --watchAll -c jest-integration-config.js",
     "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage",
-    "debug": ""
+    "debug": "node --inspect=0.0.0.0:9222 --nolazy dist/main/server.js"
   }, 
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.2.5",
