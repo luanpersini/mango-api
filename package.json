@@ -1,11 +1,16 @@
 {
   "name": "mango-api",
   "version": "1.0.0",
+  "author": "Rodrigo Manguinho",
+  "license": "ISC",
+  "repository": "github:rmanguinho/clean-ts-api",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node dist/main/server.js",
     "build": "rimraf dist && tsc",
+    "up": "npm run build && docker-compose up -d",
+    "down": "docker-compose down",
     "dev": "ts-node-dev --respawn --transpile-only src/main/server.ts",
     "startsc": "sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --runInBand",
@@ -13,10 +18,9 @@
     "test:unit": "npm test -- --watchAll -c jest-unit-config.js",
     "test:int": "npm test -- --watchAll -c jest-integration-config.js",
     "test:staged": "npm test -- --findRelatedTests",
-    "test:ci": "npm test -- --coverage"
-  },
-  "author": "",
-  "license": "ISC",
+    "test:ci": "npm test -- --coverage",
+    "debug": ""
+  }, 
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.2.5",
     "@types/bcrypt": "^5.0.0",
