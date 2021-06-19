@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/luanpersini/mango-api.svg?branch=main)](https://travis-ci.com/luanpersini/mango-api)
+[![Coverage Status](https://coveralls.io/repos/github/luanpersini/mango-api/badge.svg?branch=main)](https://coveralls.io/github/luanpersini/mango-api?branch=main)
+
 # **Clean Node API**
 
 Essa API faz parte do treinamento do professor Rodrigo Manguinho (Mango) na Udemy.
